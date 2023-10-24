@@ -49,8 +49,8 @@ function renderEvents(){
             </div>
             <div class="event-name">${event.name}</div>
             <div class="event-date">${event.date}</div>
-            <div class="actions" data-id="${event.id}">
-                <button class"bDelete">Eliminar<button>
+            <div class="actions">
+                <button class="bDelete" data-id="${event.id}">Eliminar</button>
             </div>
         </div>
         `
@@ -58,4 +58,12 @@ function renderEvents(){
         
     })
     eventsContainer.innerHTML = eventsHTML.join("")
+    document.querySelectorAll(".bDelete").forEach(button => {
+        button.addEventListener("click", (e) => {
+            const id = button.getAttribute("data-id")
+            events = events.filter(event => event.id !== id)
+
+            renderEvents()
+        })
+    })
 }
