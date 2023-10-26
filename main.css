@@ -3,133 +3,402 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    background: linear-gradient(220.55deg, #D0004B 0%, #88069D 100%);
+    background: url(./cristo.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed; 
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     margin: 0 auto
 }
 
 
-h1{
+/* #eventName{
     font-family: 'Mountains of Christmas', serif;
     font-family: 'Raleway', sans-serif;
     text-align: center;
-    color: whitesmoke;
-    margin-top: 20px;
+    background: black;
+    color: antiquewhite;
+    margin-top: 10px;
+    border: 2px solid red;
+}
+ */
 
+ #app{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
-
-.form {
-    background-color: white;
-    padding: 20px;
-    width:300px;
-    margin: 0 auto;
-}
-
-button {
-    border: none;
-    background-color: red;
-    padding: 5px;
-    color: white;
-    border-radius: 5px;
-
-}
-
-.form input{
-    margin: 5px 0;
-    padding: 5px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input[type="submit"]{
-    border: none;
-    background-color: blue;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
 
 #eventsContainer {
-    
-    background-color: white;
     border-radius: 5px;
     padding: 10px;
-    width: 500px;
-    margin: 100px auto;
+    width: 600px;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    
 }
 
 .event{
-    border: solid 1px black;
-    padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
+
+.days{
+    position: relative;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.days .box {
+    width: 11.875em;
+    height: 15.875em;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .7rem;
+    transition: all ease .3s;
+  }
+  
+  .days .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
 .event .days{
     text-align: center;
-    width: 100px;
+    width: 150px;
 }
 
 .event .days .days-number{
-    font-size: 30px;
+    font-size: 50px;
     font-weight: bold;
     display: block;
 }
 
-.event .event-name{
-    padding: 10px;
-    width: 200px;
+.date-text{
+    font-size: 30px;
+    display: block;
 }
 
-.event .event-date{
-    padding: 10px;
-    width: 100px;
+
+.hours{
+    position: relative;
+    font-family: sans-serif;
 }
 
-.event .actions{
-    padding: 10px
+.hours .box {
+    width: 11.875em;
+    height: 15.875em;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .7rem;
+    transition: all ease .3s;
+  }
+  
+  .hours .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+.event .hours{
+    text-align: center;
+    width: 150px;
 }
+
+.event .hours .hours-number{
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+}
+
+.hour-text{
+    font-size: 30px;
+    display: block;
+}
+
+
+.minutes{
+    position: relative;
+  font-family: sans-serif;
+
+}
+
+.minutes .box {
+    width: 11.875em;
+    height: 15.875em;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: .7rem;
+    transition: all ease .3s;
+  }
+  
+  .minutes .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+.event .minutes{
+    text-align: center;
+    width: 150px;
+}
+
+.event .minutes .minutes-number{
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+}
+
+.minutes-text{
+    font-size: 30px;
+    display: block;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: min-content;
+
+    background-color: #d8a40e;
+
+
+    color: whitesmoke;
+   
+}
+
+footer p {
+    text-align: center;
+}
+
+
 
 
 @media (max-width: 540px){
-    .form {
-        background-color: white;
-        padding: 10px;
-        width:300px;
-        margin: 0 auto;
-    }
 
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: url(./cristo2.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+     
+    }
+    
+    
+    /* #eventName{
+        font-family: 'Mountains of Christmas', serif;
+        font-family: 'Raleway', sans-serif;
+        text-align: center;
+        background: black;
+        color: antiquewhite;
+        margin-top: 10px;
+        border: 2px solid red;
+    }
+     */
+    
+     #app{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    
     #eventsContainer {
-        background-color: white;
         border-radius: 5px;
         padding: 10px;
-        width: 340px;
-        margin: 100px auto;
+        width: 600px;
+        margin: 0px auto;
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        
     }
+    
+    .event{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .days{
+        position: relative;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    
+    .days .box {
+        width: 11.875em;
+        height: 15.875em;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.074);
+        border: 1px solid rgba(255, 255, 255, 0.222);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border-radius: .7rem;
+        transition: all ease .3s;
+      }
+      
+      .days .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    
+    .event .days{
+        text-align: center;
+        width: 150px;
+    }
+    
+    .event .days .days-number{
+        font-size: 50px;
+        font-weight: bold;
+        display: block;
+    }
+    
+    .date-text{
+        font-size: 30px;
+        display: block;
+    }
+    
+    
+    .hours{
+        position: relative;
+        font-family: sans-serif;
+    }
+    
+    .hours .box {
+        width: 11.875em;
+        height: 15.875em;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.074);
+        border: 1px solid rgba(255, 255, 255, 0.222);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border-radius: .7rem;
+        transition: all ease .3s;
+      }
+      
+      .hours .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    
+    
+    .event .hours{
+        text-align: center;
+        width: 150px;
+    }
+    
+    .event .hours .hours-number{
+        font-size: 50px;
+        font-weight: bold;
+        display: block;
+    }
+    
+    .hour-text{
+        font-size: 30px;
+        display: block;
+    }
+    
+    
+    .minutes{
+        position: relative;
+      font-family: sans-serif;
+    
+    }
+    
+    .minutes .box {
+        width: 11.875em;
+        height: 15.875em;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.074);
+        border: 1px solid rgba(255, 255, 255, 0.222);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border-radius: .7rem;
+        transition: all ease .3s;
+      }
+      
+      .minutes .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    
+    .event .minutes{
+        text-align: center;
+        width: 150px;
+    }
+    
+    .event .minutes .minutes-number{
+        font-size: 50px;
+        font-weight: bold;
+        display: block;
+    }
+    
+    .minutes-text{
+        font-size: 30px;
+        display: block;
+    }
+    
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin: 0 auto;
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        height: min-content;
+    
+        background-color: #d8a40e;
+    
+    
+        color: whitesmoke;
+       
+    }
+    
+    footer p {
+        text-align: center;
+    }
+    
 }
 
 @media screen and (width >= 540px)  {
-    .form {
-        padding: 10px;
-        width: 300px;
-        margin: 0 auto;
-    }
+
 
     #eventsContainer {
-        background-color: white;
         border-radius: 5px;
         padding: 10px;
         width: 90%;
@@ -139,7 +408,5 @@ input[type="submit"]{
         gap: 5px;
     }
     
-    h1 {
-        font-size: 20px; /* Reduzco el tamaño del h1 */
-    }
+ 
 }

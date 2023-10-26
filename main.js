@@ -1,116 +1,52 @@
 
-let events= []
-let arr = []
+const defaultEventName = "";
+const defaultEventDate = new Date("2023-11-04T17:00:00");
 
-const eventName = document.querySelector("#eventName")
-const eventDate = document.querySelector("#eventDate")
-const buttonAdd = document.querySelector("#bAdd")
-const eventsContainer = document.querySelector("#eventsContainer")
+// Muestra el nombre del evento en el elemento con ID "eventName"
+const eventNameElement = document.getElementById("eventName");
+eventNameElement.textContent = defaultEventName;
 
-const json = load()
+// Calcula la diferencia de tiempo entre la fecha predeterminada y la fecha y hora actual
+const timeRemaining = timeDiff(defaultEventDate);
 
-try{
-    arr= JSON.parse(json)
-} catch (error){
-    arr = []
-}
-
-events = arr ? [...arr] : []
-
-renderEvents()
-
-
-
-document.querySelector("form").addEventListener("submit", event =>{
-    event.preventDefault()
-    addEvent()
-})
-
-buttonAdd.addEventListener("click", event =>{
-    event.preventDefault()
-    addEvent()
-})
-
-function addEvent (){
-    if (eventName.value === "" || eventDate.value === ""){
-        return
-    }
-    if(dateDiff(eventDate.value) < 0){
-        return
-    }
-    const newEvent = {
-        id: (Math.random() * 100).toString(36).slice(3),
-        name : eventName.value,
-        date: eventDate.value
-}
-events.unshift(newEvent)
-
-save(JSON.stringify(events))
-
-eventName.value = ""
-
-renderEvents()
-}
-
-function dateDiff(d){
-    const targetDate = new Date (d)
-    const today = new Date ()
-    const difference = targetDate.getTime() - today.getTime()
-    const days = Math.ceil(difference/(1000 * 3600 * 24))
-    return days
-}
-
-
-
-
-function renderEvents(){
-    const eventsHTML = events.map(event => {
-        const eventDate = new Date(event.date);
-        const formattedDate = eventDate.toLocaleDateString('es-ES', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
-
-        return `
-        <div class="event">
-            <div class="days">
-                <span class="days-number">${dateDiff(event.date)}</span>
+// Muestra la cantidad de días, horas y minutos restantes en el contenedor de eventos
+const eventsContainer = document.getElementById("eventsContainer");
+eventsContainer.innerHTML = `
+    <div class="event">
+        <div class="days">
+            <div class="box">
+                <span class="days-number">${timeRemaining.days}</span>
                 <span class="date-text">días</span>
             </div>
-            <div class="event-name">${event.name}</div>
-            <div class="event-date">${formattedDate}</div>
-            <div class="actions">
-                <button class="bDelete" data-id="${event.id}">Eliminar</button>
+        </div>
+        <div class="hours">
+        <div class="box">
+            <span class="hours-number">${timeRemaining.hours}</span>
+            <span class="hours-text">horas</span>
             </div>
         </div>
-        `
-    })
+        <div class="minutes">
+        <div class="box">
+            <span class="minutes-number">${timeRemaining.minutes}</span>
+            <span class="minutes-text">minutos</span>
+            </div>
+        </div>
+    </div>
+`;
 
-    const container = document.getElementById("eventsContainer");
+// La función timeDiff calcula la diferencia de tiempo en días, horas y minutos
+function timeDiff(targetDateTime) {
+    const targetTime = targetDateTime.getTime();
+    const currentTime = new Date().getTime();
+    const timeDifference = targetTime - currentTime;
 
-    if (events.length > 0) {
-        container.style.display = "block"; 
-        container.innerHTML = eventsHTML.join("");
-    } else {
-        container.style.display = "none"; 
-    }
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
 
-
-    document.querySelectorAll(".bDelete").forEach(button => {
-        button.addEventListener("click", (e) => {
-            const id = button.getAttribute("data-id")
-            events = events.filter(event => event.id !== id)
-            save(JSON.stringify(events))
-            renderEvents()
-        })
-    })
-}
-
-function save(data){
-    localStorage.setItem("items", data)
-}
-
-function load(){
-   return localStorage.getItem("items")
+    return {
+        days,
+        hours,
+        minutes
+    };
 }
