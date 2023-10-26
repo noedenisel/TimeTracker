@@ -26,6 +26,11 @@ document.querySelector("form").addEventListener("submit", event =>{
     addEvent()
 })
 
+buttonAdd.addEventListener("click", event =>{
+    event.preventDefault()
+    addEvent()
+})
+
 function addEvent (){
     if (eventName.value === "" || eventDate.value === ""){
         return
@@ -55,8 +60,18 @@ function dateDiff(d){
     return days
 }
 
+
+
+
 function renderEvents(){
     const eventsHTML = events.map(event => {
+        const eventDate = new Date(event.date);
+        const formattedDate = eventDate.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+
         return `
         <div class="event">
             <div class="days">
@@ -64,16 +79,24 @@ function renderEvents(){
                 <span class="date-text">días</span>
             </div>
             <div class="event-name">${event.name}</div>
-            <div class="event-date">${event.date}</div>
+            <div class="event-date">${formattedDate}</div>
             <div class="actions">
                 <button class="bDelete" data-id="${event.id}">Eliminar</button>
             </div>
         </div>
         `
-
-        
     })
-    eventsContainer.innerHTML = eventsHTML.join("")
+
+    const container = document.getElementById("eventsContainer");
+
+    if (events.length > 0) {
+        container.style.display = "block"; 
+        container.innerHTML = eventsHTML.join("");
+    } else {
+        container.style.display = "none"; 
+    }
+
+
     document.querySelectorAll(".bDelete").forEach(button => {
         button.addEventListener("click", (e) => {
             const id = button.getAttribute("data-id")
