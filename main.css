@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: linear-gradient(220.55deg, #D0004B 0%, #88069D 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto
+}
+
+
+h1{
+    font-family: 'Mountains of Christmas', serif;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 20px;
+
+}
+
+
+.form {
+    background-color: white;
+    padding: 20px;
+    width:300px;
+    margin: 0 auto;
+}
+
+button {
+    border: none;
+    background-color: red;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+
+}
+
+.form input{
+    margin: 5px 0;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"]{
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#eventsContainer {
+    
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 500px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.event{
+    border: solid 1px black;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event .days{
+    text-align: center;
+    width: 100px;
+}
+
+.event .days .days-number{
+    font-size: 30px;
+    font-weight: bold;
+    display: block;
+}
+
+.event .event-name{
+    padding: 10px;
+    width: 200px;
+}
+
+.event .event-date{
+    padding: 10px;
+    width: 100px;
+}
+
+.event .actions{
+    padding: 10px
+}
+
+
+@media (max-width: 540px){
+    .form {
+        background-color: white;
+        padding: 10px;
+        width:300px;
+        margin: 0 auto;
+    }
+
+    #eventsContainer {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        width: 340px;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media screen and (width >= 540px)  {
+    .form {
+        padding: 10px;
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    #eventsContainer {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        width: 90%;
+        margin: 60px auto; /* Reduzco el margen superior para hacer espacio para el h1 */
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    h1 {
+        font-size: 20px; /* Reduzco el tamaño del h1 */
+    }
+}
